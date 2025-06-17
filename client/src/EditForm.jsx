@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 function EditItemForm({ itemId, initialData, onUpdateSuccess }) {
   const [name, setName] = useState(initialData.name || "");
   const [description, setDescription] = useState(initialData.description || "");
@@ -14,7 +13,7 @@ function EditItemForm({ itemId, initialData, onUpdateSuccess }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`/api/items/${itemId}`, {
+      const response = await fetch(`${import.meta.env.API_BASE}/api/items/${itemId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

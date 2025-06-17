@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 function ItemList() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +14,7 @@ function ItemList() {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch("/api/items");
+        const response = await fetch(`${import.meta.env.API_BASE}/api/items`);
         if (response.ok) {
           const data = await response.json();
           setItems(data.items);
@@ -43,9 +42,12 @@ function ItemList() {
     setMessageType("");
 
     try {
-      const response = await fetch(`/api/items/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `${import.meta.env.API_BASE}/api/items/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (response.ok) {
         setMessage("Item deleted successfully!");
         setMessageType("success");

@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 function CreateItemForm({ onCreationSuccess }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -12,7 +11,7 @@ function CreateItemForm({ onCreationSuccess }) {
     setMessageType("");
 
     try {
-      const response = await fetch("/api/items", {
+      const response = await fetch(`${import.meta.env.API_BASE}/api/items`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

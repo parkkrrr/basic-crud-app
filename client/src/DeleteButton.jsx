@@ -1,12 +1,11 @@
 import React from "react";
-
 function DeleteItemButton({ itemId, onDeleteSuccess }) {
   const handleDelete = async () => {
     if (!window.confirm("Are you sure you want to delete this item?")) {
       return;
     }
     try {
-      const response = await fetch(`/api/items/${itemId}`, {
+      const response = await fetch(`${import.meta.env.API_BASE}/api/items/${itemId}`, {
         method: "DELETE",
       });
       if (response.ok) {
