@@ -14,7 +14,7 @@ function ItemList() {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`${import.meta.env.API_BASE}/api/items`);
+        const response = await fetch(`${import.meta.env.VITE_API_BASE}/api/items`);
         if (response.ok) {
           const data = await response.json();
           setItems(data.items);
@@ -43,7 +43,7 @@ function ItemList() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.API_BASE}/api/items/${id}`,
+        `${import.meta.env.VITE_API_BASE}/api/items/${id}`,
         {
           method: "DELETE",
         }

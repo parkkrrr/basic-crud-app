@@ -5,7 +5,7 @@ function DeleteItemButton({ itemId, onDeleteSuccess }) {
       return;
     }
     try {
-      const response = await fetch(`${import.meta.env.API_BASE}/api/items/${itemId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE}/api/items/${itemId}`, {
         method: "DELETE",
       });
       if (response.ok) {

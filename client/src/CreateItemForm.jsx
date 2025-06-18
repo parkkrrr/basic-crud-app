@@ -11,7 +11,7 @@ function CreateItemForm({ onCreationSuccess }) {
     setMessageType("");
 
     try {
-      const response = await fetch(`${import.meta.env.API_BASE}/api/items`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE}/api/items`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
